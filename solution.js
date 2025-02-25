@@ -123,3 +123,38 @@ function bulatkan(a) {
 }
 
 // Export hasil akhir
+
+/**
+ * Mengembalikan nilai terkecil dari dua angka.
+ * @param {number} a 
+ * @param {number} b 
+ * @returns {number}
+ */
+function minimum(a, b) {
+    return Math.min(a, b);
+}
+
+/**
+ * Mengembalikan hasil dari a dibulatkan ke bilangan bulat terdekat.
+ * @param {number} a 
+ * @returns {number}
+ */
+function bulatkan(a) {
+    return Math.round(a);
+}
+
+// Export semua fungsi yang tersedia
+module.exports = {
+    tambah,
+    kurang,
+    kali,
+    bagi,
+    pangkat,
+    faktorial,
+    isPrima,
+    modulus,
+    absolut,
+    maksimum,
+    minimum,
+    bulatkan
+};
