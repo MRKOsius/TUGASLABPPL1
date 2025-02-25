@@ -1,4 +1,7 @@
+// Import modul readline untuk membaca input dari pengguna melalui CLI
 const readline = require('readline');
+
+// Import fungsi operasi matematika dari file solution.js
 const { 
     tambah,
     kurang,
@@ -14,11 +17,13 @@ const {
     bulatkan
 } = require('./solution.js');
 
+// Membuat antarmuka readline untuk membaca input dari terminal
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
 
+// Fungsi untuk menampilkan menu operasi kepada pengguna
 function displayMenu() {
     console.log('\n=== Kalkulator Sederhana ===');
     console.log('1. Penjumlahan');
@@ -36,15 +41,17 @@ function displayMenu() {
     console.log('0. Keluar');
 }
 
+// Fungsi utama kalkulator yang berjalan dalam loop hingga pengguna memilih keluar
 async function calculator() {
-    while (true) {
-        displayMenu();
-        
+    while (true) {  // Loop utama program
+        displayMenu();  // Tampilkan menu setiap iterasi
+
+        // Menunggu input pilihan operasi dari pengguna
         const choice = await new Promise(resolve => {
             rl.question('\nPilih operasi (0-12): ', resolve);
         });
 
-        if (choice === '0') {
+        if (choice === '0') { // Jika pengguna memilih 0, program akan berhenti
             console.log('Terima kasih telah menggunakan kalkulator!');
             rl.close();
             break;
@@ -55,18 +62,18 @@ async function calculator() {
 
         try {
             switch (choice) {
-                case '1':
+                case '1': // Penjumlahan
                     num1 = await new Promise(resolve => {
                         rl.question('Masukkan angka pertama: ', resolve);
                     });
                     num2 = await new Promise(resolve => {
                         rl.question('Masukkan angka kedua: ', resolve);
                     });
-                    result = tambah(Number(num1), Number(num2));
+                    result = tambah(Number(num1), Number(num2)); // Konversi input ke angka dan lakukan operasi
                     console.log(`Hasil: ${result}`);
                     break;
 
-                case '2':
+                case '2': // Pengurangan
                     num1 = await new Promise(resolve => {
                         rl.question('Masukkan angka pertama: ', resolve);
                     });
@@ -77,7 +84,7 @@ async function calculator() {
                     console.log(`Hasil: ${result}`);
                     break;
 
-                case '3':
+                case '3': // Perkalian
                     num1 = await new Promise(resolve => {
                         rl.question('Masukkan angka pertama: ', resolve);
                     });
@@ -88,7 +95,7 @@ async function calculator() {
                     console.log(`Hasil: ${result}`);
                     break;
 
-                case '4':
+                case '4': // Pembagian
                     num1 = await new Promise(resolve => {
                         rl.question('Masukkan angka pertama: ', resolve);
                     });
@@ -99,7 +106,7 @@ async function calculator() {
                     console.log(`Hasil: ${result}`);
                     break;
 
-                case '5':
+                case '5': // Pangkat
                     num1 = await new Promise(resolve => {
                         rl.question('Masukkan angka: ', resolve);
                     });
@@ -110,7 +117,7 @@ async function calculator() {
                     console.log(`Hasil: ${result}`);
                     break;
 
-                case '6':
+                case '6': // Faktorial
                     num1 = await new Promise(resolve => {
                         rl.question('Masukkan angka: ', resolve);
                     });
@@ -118,7 +125,7 @@ async function calculator() {
                     console.log(`Hasil: ${result}`);
                     break;
 
-                case '7':
+                case '7': // Cek Bilangan Prima
                     num1 = await new Promise(resolve => {
                         rl.question('Masukkan angka: ', resolve);
                     });
@@ -126,7 +133,7 @@ async function calculator() {
                     console.log(`${num1} ${result ? 'adalah' : 'bukan'} bilangan prima`);
                     break;
 
-                case '8':
+                case '8': // Modulus
                     num1 = await new Promise(resolve => {
                         rl.question('Masukkan angka pertama: ', resolve);
                     });
@@ -137,7 +144,7 @@ async function calculator() {
                     console.log(`Hasil: ${result}`);
                     break;
 
-                case '9':
+                case '9': // Nilai Absolut
                     num1 = await new Promise(resolve => {
                         rl.question('Masukkan angka: ', resolve);
                     });
@@ -145,7 +152,7 @@ async function calculator() {
                     console.log(`Hasil: ${result}`);
                     break;
 
-                case '10':
+                case '10': // Nilai Maksimum dari dua angka
                     num1 = await new Promise(resolve => {
                         rl.question('Masukkan angka pertama: ', resolve);
                     });
@@ -156,7 +163,7 @@ async function calculator() {
                     console.log(`Nilai maksimum: ${result}`);
                     break;
 
-                case '11':
+                case '11': // Nilai Minimum dari dua angka
                     num1 = await new Promise(resolve => {
                         rl.question('Masukkan angka pertama: ', resolve);
                     });
@@ -167,7 +174,7 @@ async function calculator() {
                     console.log(`Nilai minimum: ${result}`);
                     break;
 
-                case '12':
+                case '12': // Pembulatan angka desimal
                     num1 = await new Promise(resolve => {
                         rl.question('Masukkan angka desimal: ', resolve);
                     });
@@ -179,9 +186,10 @@ async function calculator() {
                     console.log('Pilihan tidak valid! Silakan coba lagi.');
             }
         } catch (error) {
-            console.log(`Error: ${error.message}`);
+            console.log(`Error: ${error.message}`); // Menangani error yang mungkin terjadi
         }
     }
 }
 
+// Menjalankan kalkulator
 calculator();
