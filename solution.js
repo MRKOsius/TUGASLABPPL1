@@ -27,15 +27,16 @@ function kurang(a, b) {
 function kali(a, b) {
     return a * b;
 }
-
 /**
  * Mengembalikan hasil pembagian dua angka.
  * @param {number} a 
- * @param {number} b 
- * @returns {number | string}
+ * @param {number} b
+ * @throws {Error} 
+ * @returns {number} 
  */
 function bagi(a, b) {
- 
+    if (b === 0) throw new Error('Tidak bisa membagi dengan 0');
+    return a / b;
 }
 
 /**
@@ -45,6 +46,7 @@ function bagi(a, b) {
  * @returns {number}
  */
 function pangkat(a, b) {
+    return Math.pow(a, b);
 }
 
 /**
@@ -53,22 +55,9 @@ function pangkat(a, b) {
  * @returns {number}
  */
 function faktorial(n) {
-}
-
-/**
- * Mengembalikan true jika angka adalah bilangan prima, false jika tidak.
- * @param {number} n 
- * @returns {boolean}
- */
-function isPrima(n) {
-    
-    if (n <= 1) return false;
-    
-    for (let i = 2; i <= Math.sqrt(n); i++) {
-        if (n % i === 0) return false;
-    }
-    return true;
-    
+    if (n < 0) throw new Error('Tidak bisa menghitung faktorial dari angka negatif');
+    if (n === 0 || n === 1) return 1;
+    return n * faktorial(n - 1);
 }
 
 /**
