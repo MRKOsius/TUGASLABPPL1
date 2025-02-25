@@ -1,5 +1,6 @@
 /**
  * Mengembalikan hasil penjumlahan dua angka.
+ * Contoh: tambah(3, 2) -> 5
  * @param {number} a 
  * @param {number} b 
  * @returns {number}
@@ -10,6 +11,7 @@ function tambah(a, b) {
 
 /**
  * Mengembalikan hasil pengurangan dua angka.
+ * Contoh: kurang(5, 3) -> 2
  * @param {number} a 
  * @param {number} b 
  * @returns {number}
@@ -20,6 +22,7 @@ function kurang(a, b) {
 
 /**
  * Mengembalikan hasil perkalian dua angka.
+ * Contoh: kali(4, 3) -> 12
  * @param {number} a 
  * @param {number} b 
  * @returns {number}
@@ -27,11 +30,13 @@ function kurang(a, b) {
 function kali(a, b) {
     return a * b;
 }
+
 /**
  * Mengembalikan hasil pembagian dua angka.
+ * Contoh: bagi(10, 2) -> 5
  * @param {number} a 
  * @param {number} b
- * @throws {Error} 
+ * @throws {Error} Jika b adalah 0.
  * @returns {number} 
  */
 function bagi(a, b) {
@@ -41,6 +46,7 @@ function bagi(a, b) {
 
 /**
  * Mengembalikan hasil pangkat dari dua angka.
+ * Contoh: pangkat(2, 3) -> 8
  * @param {number} a 
  * @param {number} b 
  * @returns {number}
@@ -51,6 +57,7 @@ function pangkat(a, b) {
 
 /**
  * Mengembalikan faktorial dari sebuah angka.
+ * Contoh: faktorial(5) -> 120
  * @param {number} n 
  * @returns {number}
  */
@@ -59,8 +66,10 @@ function faktorial(n) {
     if (n === 0 || n === 1) return 1;
     return n * faktorial(n - 1);
 }
+
 /**
  * Mengembalikan true jika angka adalah bilangan prima, false jika tidak.
+ * Contoh: isPrima(7) -> true
  * @param {number} n 
  * @returns {boolean}
  */
@@ -72,14 +81,12 @@ function isPrima(n) {
     return true;
 }
 
-
 /**
- * Mengembalikan hasil dari a modulus b.
- * modulus adalah sisa pembagian a dengan b.
- * contoh 10 mod 3 = 1, karena 10 dibagi 3 adalah 3 sisa 1.
- * 10 / 3 = 3 sisa 1. dan 1 adalah jawabannya
+ * Mengembalikan hasil a modulus b.
+ * Contoh: modulus(10, 3) -> 1
  * @param {number} a 
  * @param {number} b 
+ * @throws {Error} Jika b adalah 0.
  * @returns {number}
  */
 function modulus(a, b) {
@@ -89,6 +96,7 @@ function modulus(a, b) {
 
 /**
  * Mengembalikan nilai absolut dari sebuah angka.
+ * Contoh: absolut(-7) -> 7
  * @param {number} a 
  * @returns {number}
  */
@@ -96,9 +104,9 @@ function absolut(a) {
     return Math.abs(a);
 }
 
-
 /**
  * Mengembalikan nilai terbesar dari dua angka.
+ * Contoh: maksimum(4, 9) -> 9
  * @param {number} a 
  * @param {number} b 
  * @returns {number}
@@ -109,29 +117,32 @@ function maksimum(a, b) {
 
 /**
  * Mengembalikan nilai terkecil dari dua angka.
+ * Contoh: minimum(4, 9) -> 4
  * @param {number} a 
  * @param {number} b 
  * @returns {number}
  */
 function minimum(a, b) {
     return Math.min(a, b);
-
 }
 
 /**
  * Mengembalikan hasil dari a dibulatkan ke bilangan bulat terdekat.
+ * Contoh: bulatkan(4.6) -> 5
  * @param {number} a 
  * @returns {number}
  */
 function bulatkan(a) {
     return Math.round(a);
-
 }
 
-// Export hasil akhir
+// ===========================
+//       EKSPORT MODUL
+// ===========================
 
-
-// Export semua fungsi yang tersedia
+/**
+ * Mengekspor semua fungsi yang tersedia agar bisa digunakan di file lain.
+ */
 module.exports = {
     tambah,
     kurang,
