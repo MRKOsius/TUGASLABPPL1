@@ -114,6 +114,8 @@ function maksimum(a, b) {
  * @returns {number}
  */
 function minimum(a, b) {
+    return Math.min(a, b);
+
 }
 
 /**
@@ -122,6 +124,8 @@ function minimum(a, b) {
  * @returns {number}
  */
 function bulatkan(a) {
+    return Math.round(a);
+
 }
 
 // Export hasil akhir
