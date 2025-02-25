@@ -1,0 +1,149 @@
+/**
+ * Mengembalikan hasil penjumlahan dua angka.
+ * @param {number} a 
+ * @param {number} b 
+ * @returns {number}
+ */
+function tambah(a, b) {
+    return a + b;
+}
+
+/**
+ * Mengembalikan hasil pengurangan dua angka.
+ * @param {number} a 
+ * @param {number} b 
+ * @returns {number}
+ */
+function kurang(a, b) {
+    return a - b;
+}
+
+/**
+ * Mengembalikan hasil perkalian dua angka.
+ * @param {number} a 
+ * @param {number} b 
+ * @returns {number}
+ */
+function kali(a, b) {
+    return a * b;
+}
+/**
+ * Mengembalikan hasil pembagian dua angka.
+ * @param {number} a 
+ * @param {number} b
+ * @throws {Error} 
+ * @returns {number} 
+ */
+function bagi(a, b) {
+    if (b === 0) throw new Error('Tidak bisa membagi dengan 0');
+    return a / b;
+}
+
+/**
+ * Mengembalikan hasil pangkat dari dua angka.
+ * @param {number} a 
+ * @param {number} b 
+ * @returns {number}
+ */
+function pangkat(a, b) {
+    return Math.pow(a, b);
+}
+
+/**
+ * Mengembalikan faktorial dari sebuah angka.
+ * @param {number} n 
+ * @returns {number}
+ */
+function faktorial(n) {
+    if (n < 0) throw new Error('Tidak bisa menghitung faktorial dari angka negatif');
+    if (n === 0 || n === 1) return 1;
+    return n * faktorial(n - 1);
+}
+
+/**
+ * Mengembalikan hasil dari a modulus b.
+ * modulus adalah sisa pembagian a dengan b.
+ * contoh 10 mod 3 = 1, karena 10 dibagi 3 adalah 3 sisa 1.
+ * 10 / 3 = 3 sisa 1. dan 1 adalah jawabannya
+ * @param {number} a 
+ * @param {number} b 
+ * @returns {number}
+ */
+function modulus(a, b) {
+    if (b === 0) throw new Error('Tidak bisa modulus dengan 0');
+    return a % b;
+}
+
+/**
+ * Mengembalikan nilai absolut dari sebuah angka.
+ * @param {number} a 
+ * @returns {number}
+ */
+function absolut(a) {
+    return Math.abs(a);
+}
+
+
+/**
+ * Mengembalikan nilai terbesar dari dua angka.
+ * @param {number} a 
+ * @param {number} b 
+ * @returns {number}
+ */
+function maksimum(a, b) {
+    return Math.max(a, b);
+}
+
+/**
+ * Mengembalikan nilai terkecil dari dua angka.
+ * @param {number} a 
+ * @param {number} b 
+ * @returns {number}
+ */
+function minimum(a, b) {
+}
+
+/**
+ * Mengembalikan hasil dari a dibulatkan ke bilangan bulat terdekat.
+ * @param {number} a 
+ * @returns {number}
+ */
+function bulatkan(a) {
+}
+
+// Export hasil akhir
+
+/**
+ * Mengembalikan nilai terkecil dari dua angka.
+ * @param {number} a 
+ * @param {number} b 
+ * @returns {number}
+ */
+function minimum(a, b) {
+    return Math.min(a, b);
+}
+
+/**
+ * Mengembalikan hasil dari a dibulatkan ke bilangan bulat terdekat.
+ * @param {number} a 
+ * @returns {number}
+ */
+function bulatkan(a) {
+    return Math.round(a);
+}
+
+// Export semua fungsi yang tersedia
+module.exports = {
+    tambah,
+    kurang,
+    kali,
+    bagi,
+    pangkat,
+    faktorial,
+    isPrima,
+    modulus,
+    absolut,
+    maksimum,
+    minimum,
+    bulatkan
+};
