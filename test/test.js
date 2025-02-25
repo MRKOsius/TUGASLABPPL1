@@ -61,8 +61,41 @@ function testKali() {
 }
 
 function testBagi() {
-  checkTest(bagi(6, 3) === 2, 'Test bagi(6, 3) failed');
-  checkTest(bagi(5, 0) === "Pembagian oleh nol tidak diperbolehkan", 'Test bagi(5, 0) failed');
+    // Test cases for normal division
+    const testCases = [
+        { a: 10, b: 2, expected: 5 },
+        { a: 15, b: 3, expected: 5 },
+        { a: 8, b: 4, expected: 2 },
+        { a: -6, b: 2, expected: -3 },
+        { a: 0, b: 5, expected: 0 }
+    ];
+
+    // Test normal cases
+    testCases.forEach(({ a, b, expected }) => {
+        const result = bagi(a, b);
+        if (result !== expected) {
+            console.error(`GAGAL: bagi(${a}, ${b}) menghasilkan ${result}, seharusnya ${expected}`);
+            errorCount++;
+            return;
+        }
+        correctCount++;
+    });
+
+    // Test division by zero
+    try {
+        bagi(10, 0);
+        console.error('GAGAL: Seharusnya error saat membagi dengan 0');
+        errorCount++;
+    } catch (error) {
+        if (error.message === 'Tidak bisa membagi dengan 0') {
+            correctCount++;
+        } else {
+            console.error('GAGAL: Pesan error tidak sesuai');
+            errorCount++;
+        }
+    }
+
+    console.log('Tes fungsi bagi selesai:', errorCount === 0 ? 'Semua benar' : `Ada ${errorCount} kesalahan`);
 }
 
 function testPangkat() {
