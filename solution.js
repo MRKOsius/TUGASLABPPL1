@@ -61,6 +61,14 @@ function faktorial(n) {
  * @returns {boolean}
  */
 function isPrima(n) {
+    
+    if (n <= 1) return false;
+    
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) return false;
+    }
+    return true;
+    
 }
 
 /**
@@ -73,6 +81,8 @@ function isPrima(n) {
  * @returns {number}
  */
 function modulus(a, b) {
+    if (b === 0) throw new Error('Tidak bisa modulus dengan 0');
+    return a % b;
 }
 
 /**
@@ -81,6 +91,7 @@ function modulus(a, b) {
  * @returns {number}
  */
 function absolut(a) {
+    return Math.abs(a);
 }
 
 
@@ -91,6 +102,7 @@ function absolut(a) {
  * @returns {number}
  */
 function maksimum(a, b) {
+    return Math.max(a, b);
 }
 
 /**
