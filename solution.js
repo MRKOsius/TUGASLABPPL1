@@ -59,6 +59,19 @@ function faktorial(n) {
     if (n === 0 || n === 1) return 1;
     return n * faktorial(n - 1);
 }
+/**
+ * Mengembalikan true jika angka adalah bilangan prima, false jika tidak.
+ * @param {number} n 
+ * @returns {boolean}
+ */
+function isPrima(n) {
+    if (n <= 1) return false;
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) return false;
+    }
+    return true;
+}
+
 
 /**
  * Mengembalikan hasil dari a modulus b.
